@@ -1,0 +1,48 @@
+Instalar o Git no Windows
+https://git-scm.com/download/win
+
+Abra o terminal novamente e digite:
+git --version
+
+1. Configurar repositório Git local no VS Code
+Abra o VS Code na pasta do seu projeto.
+No terminal (CTRL + `), rode:
+git init
+
+Crie um arquivo .gitignore com os arquivos/pastas que você não quer versionar. Exemplo:
+node_modules/
+.env
+dist/
+
+2. Criar um repositório no GitHub
+Acesse https://github.com
+Clique em New repository
+Dê um nome (ex: meu-projeto), selecione público ou privado.
+NÃO marque para adicionar README (para evitar conflito).
+Clique em Create repository
+
+3. Vincular seu projeto local ao repositório remoto
+No terminal do VS Code, rode:
+git remote add origin https://github.com/SEU_USUARIO/meu-projeto.git
+git add .
+git commit -m "Primeiro commit"
+git branch -M main
+git push -u origin main
+
+4. Editar seu projeto no VS Code normalmente
+Você pode programar, testar localmente e ir versionando com Git:
+git add .
+git commit -m "Descrição das mudanças"
+git push
+
+
+
+
+Passo seguinte:
+No seu projeto, crie esta estrutura de pastas e arquivo:
+.github/workflows/deploy.yml
+
+
+git clone
+
+
