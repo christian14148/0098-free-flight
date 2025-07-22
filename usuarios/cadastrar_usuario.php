@@ -33,7 +33,7 @@ http://localhost/freelancers/usuarios/cadastrar_usuario.php?p=inserir
 <?php
 include('../banco/conexao.php');
 if ($_GET['p']=='inserir'){ 
-
+    
         $cpf = $_POST['cpf']; 
         $nome = $_POST['nome']; 
         $senha = $_POST['senha']; 
@@ -49,6 +49,7 @@ if ($_GET['p']=='inserir'){
         $rua = $_POST['rua'];
         $bairro = $_POST['bairro'];
         $cidade = $_POST['cidade'];
+        $estado = $_POST['uf'];
         $uf = $_POST['uf'];
         $numero = $_POST['numero'];
         $complemento = $_POST['complemento'];
@@ -70,39 +71,47 @@ if ($_GET['p']=='inserir'){
     <form action="cadastrar_usuario.php?p=inserir" method="POST">
     <div>
         <label>CPF </label>
-        <input type="number" name="cpf">
+        <input type="number" name="cpf" required>
     </div>
     <div>
         <label>Nome </label>
-        <input type="text" name="nome">
+        <input type="text" name="nome" required>
     </div>
     <div>
         <label>Senha </label>
-        <input type="password" name="senha">
+        <input type="password" name="senha" required>
     </div>
     <div>
         <label>Telefone </label>
-        <input type="phone" name="telefone">
+        <input type="phone" name="telefone" required>
     </div>
     <div>
         <label>Email </label>
-        <input type="email" name="email">
+        <input type="email" name="email" required>
     </div>
     <div>
         <label>Data de Nascimento </label>
-        <input type="date" name="dtnascimento">
+        <input type="date" name="dtnascimento" required>
     </div>
     <div>
         <label>Tipo de usuário </label>
-        <input type="text" name="tipo_usuario">
+        <input type="text" name="tipo_usuario" palceholder="tipo" list="type" required>
+        <datalist id="type">
+            <option value="Freelancer"></option>
+            <option value="Contratante"></option>
     </div>
     <div>
         <label>Gênero </label>
-        <input type="text" name="genero_usuario">
+        <input type="text" name="genero_usuario" palceholder="genero" list="faixa" required>
+        <datalist id="faixa">
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="A">Outro</option>
+        </datalist>
     </div>
     <div>
         <label>Foto de perfil </label>
-        <input type="image" name="url_perfil">
+        <input type="file" name="url_perfil" accept="image/*">
     </div>
     <div>
         <label>Categorias de trabalho </label>
