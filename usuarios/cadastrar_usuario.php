@@ -50,7 +50,6 @@ if ($_GET['p']=='inserir'){
         $bairro = $_POST['bairro'];
         $cidade = $_POST['cidade'];
         $estado = $_POST['uf'];
-        $uf = $_POST['uf'];
         $numero = $_POST['numero'];
         $complemento = $_POST['complemento'];
          
