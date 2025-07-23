@@ -36,7 +36,7 @@ if ($_GET['p']=='inserir'){
     
         $cpf = $_POST['cpf']; 
         $nome = $_POST['nome']; 
-        $senha = $_POST['senha']; 
+        $senha = hash('md2',$_POST['senha']); 
         $telefone = $_POST['telefone']; 
         $email = $_POST['email']; 
         $dtnascimento = $_POST['dtnascimento'];
@@ -106,7 +106,7 @@ if ($_GET['p']=='inserir'){
         <datalist id="faixa">
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
-            <option value="A">Outro</option>
+            <option value="Outro"></option>
         </datalist>
     </div>
     <div>
