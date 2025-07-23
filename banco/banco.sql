@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 16/07/2025 às 00:37
+-- Host: 127.0.0.1:3316
+-- Tempo de geração: 23/07/2025 às 02:46
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `freelancer`
+-- Banco de dados: `freelancers`
 --
 
 -- --------------------------------------------------------
@@ -78,19 +78,32 @@ CREATE TABLE `propostas` (
 --
 
 CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
   `nome_usuario` varchar(200) NOT NULL,
   `senha_usuario` varchar(200) NOT NULL,
   `telefone_usuario` varchar(11) NOT NULL,
   `email` varchar(200) NOT NULL,
   `data_nascimento` date NOT NULL,
   `bio_usuario` text NOT NULL,
-  `codigo_municipio` varchar(200) NOT NULL,
+  `cep` varchar(200) NOT NULL,
+  `rua` varchar(200) NOT NULL,
+  `bairro` varchar(200) NOT NULL,
+  `cidade` varchar(200) NOT NULL,
+  `estado` varchar(200) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `complemento` varchar(200) NOT NULL,
   `tipo_usuario` int(11) NOT NULL,
   `genero_cliente` varchar(1) NOT NULL,
   `avatar_url` varchar(200) NOT NULL,
   `categorias_usuario` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`cpf`, `nome_usuario`, `senha_usuario`, `telefone_usuario`, `email`, `data_nascimento`, `bio_usuario`, `cep`, `rua`, `bairro`, `cidade`, `estado`, `numero`, `complemento`, `tipo_usuario`, `genero_cliente`, `avatar_url`, `categorias_usuario`) VALUES
+('13353146601', 'raphael', 'ef1fedf5d32ead6b7aaf687de4ed1b71', '(31) 952631', 'raphaelnunes443@gmail.com', '2004-12-07', 'aa', '31210630', 'Rua das Garças', 'Santo André', 'Belo Horizonte', 'MG', 33, '', 0, 'M', '', 'aa');
 
 --
 -- Índices para tabelas despejadas
@@ -118,7 +131,7 @@ ALTER TABLE `propostas`
 -- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`cpf`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -141,12 +154,6 @@ ALTER TABLE `projetos`
 --
 ALTER TABLE `propostas`
   MODIFY `id_proposta` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
