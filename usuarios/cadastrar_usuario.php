@@ -32,7 +32,7 @@ http://localhost/freelancers/usuarios/cadastrar_usuario.php?p=inserir
 -->
 <?php
 include('../banco/conexao.php');
-if ($_GET['p']=='inserir'){ 
+if ($_GET['p']=='inserir'){
     
         $cpf = $_POST['cpf']; 
         $nome = $_POST['nome']; 
@@ -70,38 +70,38 @@ if ($_GET['p']=='inserir'){
     <form action="cadastrar_usuario.php?p=inserir" method="POST">
     <div>
         <label>CPF </label>
-        <input type="number" name="cpf" required>
+        <input type="number" name="cpf" >
     </div>
     <div>
         <label>Nome </label>
-        <input type="text" name="nome" required>
+        <input type="text" name="nome" >
     </div>
     <div>
         <label>Senha </label>
-        <input type="password" name="senha" required>
+        <input type="password" name="senha" >
     </div>
     <div>
         <label>Telefone </label>
-        <input type="phone" name="telefone" required>
+        <input type="phone" name="telefone" >
     </div>
     <div>
         <label>Email </label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" >
     </div>
     <div>
         <label>Data de Nascimento </label>
-        <input type="date" name="dtnascimento" required>
+        <input type="date" name="dtnascimento" >
     </div>
     <div>
         <label>Tipo de usuário </label>
-        <input type="text" name="tipo_usuario" palceholder="tipo" list="type" required>
+        <input type="text" name="tipo_usuario" palceholder="tipo" list="type" >
         <datalist id="type">
             <option value="Freelancer"></option>
             <option value="Contratante"></option>
     </div>
     <div>
         <label>Gênero </label>
-        <input type="text" name="genero_usuario" palceholder="genero" list="faixa" required>
+        <input type="text" name="genero_usuario" palceholder="genero" list="faixa" >
         <datalist id="faixa">
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
@@ -154,8 +154,8 @@ if ($_GET['p']=='inserir'){
       <input type="text" name="complemento" id="complemento" />
     </div>
     <div>
-        <label>Biografia </label>
-        <input type="text" name="bio">
+        <br><label>Biografia </label><br>
+        <textarea id="bio" name="bio" rows="6" cols="45"></textarea>
     </div>
     <button type="submit">Cadastrar</button>
     </form>
