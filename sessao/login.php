@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     include('../banco/conexao.php');
     if (isset($_POST['envio'])){
         $login = $_POST['login'];
@@ -35,5 +37,5 @@
     </div>
     
     <button type="submit" class="btn btn-primary" name="envio">Login</button>
-    <a href="../usuarios/cadastrar_usuario.php">Cancelar</a>
+    <a href="../index.php">Cancelar</a>
 </form>

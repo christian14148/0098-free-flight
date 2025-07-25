@@ -1,15 +1,15 @@
 <?php
-//CONEXÃO COM O BANCO
+$host = 'localhost'; 
+    $usuario = 'root'; 
+    $senha = NULL; 
+    $banco = 'freelancer'; 
+    $porta = '3316';
 
-$host = "localhost";//servidor onde esta o banco de dados
-$user = "root"; //nome do usuario
-$psw = ""; //senha do banco de dados
-$database = "freelancers"; // nome do banco de dados
+    
+    $conn = new mysqli($host,$usuario,$senha,$banco, $porta); 
+    
+    if ($conn->connect_error) { 
+        die("Conexão falhou: " . $conn->connect_error); 
+    }
 
-//Criar conexao com banco de dados
-$con = new mysqli($host,$user,$psw,$database);
-if ($con->connect_error) { 
-    die("Conexão falhou");
-}
-echo"Conectado com Sucesso ";
-?>
+    ?>

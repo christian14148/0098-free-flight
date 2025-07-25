@@ -31,6 +31,7 @@ categorias_usuario = Categorias de experiência
 http://localhost/freelancers/usuarios/cadastrar_usuario.php?p=inserir
 -->
 <?php
+include('save.php');
 include('../banco/conexao.php');
 if ($_GET['p']=='inserir'){
     
@@ -54,7 +55,7 @@ if ($_GET['p']=='inserir'){
         $complemento = $_POST['complemento'];
          
         $sql = "INSERT INTO usuarios (cpf, nome_usuario, senha_usuario, telefone_usuario, email, data_nascimento, bio_usuario, cep, rua, bairro, cidade, estado, numero, complemento, tipo_usuario, genero_cliente, avatar_url, categorias_usuario) 
-                            VALUES ('$cpf', '$nome', '$senha', '$telefone',  '$email',  '$dtnascimento', '$bio_usuario', '$cep', '$rua', '$bairro', '$cidade', '$estado', '$numero', '$complemento', '$tipo_usuario', '$genero_usuario', '$url_perfil', '$categorias')"; 
+                            VALUES ('$cpf', '$nome', '$senha', '$telefone',  '$email',  '$dtnascimento', '$bio_usuario', '$cep', '$rua', '$bairro', '$cidade', '$estado', '$numero', '$complemento', '$tipo_usuario', '$genero_usuario', '$nomeArquivoNovo', '$categorias')"; 
         
         if ($conn->query($sql) === TRUE){ 
         echo "Contato cadastrado com sucesso!<br>"; 
@@ -67,7 +68,7 @@ if ($_GET['p']=='inserir'){
 
 <body>
     
-    <form action="cadastrar_usuario.php?p=inserir" method="POST">
+    <form action="cadastrar_usuario.php?p=inserir" method="POST" enctype="multipart/form-data">
     <div>
         <label>CPF </label>
         <input type="number" name="cpf" >
@@ -110,7 +111,7 @@ if ($_GET['p']=='inserir'){
     </div>
     <div>
         <label>Foto de perfil </label>
-        <input type="file" name="url_perfil" accept="image/*">
+        <input type="file" name="url_perfil" id="url_perfil" accept="image/*">
     </div>
     <div>
         <label>Categorias de trabalho </label>
