@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3316
--- Tempo de geração: 23/07/2025 às 02:46
+-- Tempo de geração: 26/07/2025 às 02:40
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `freelancers`
+-- Banco de dados: `freelancer`
 --
 
 -- --------------------------------------------------------
@@ -97,13 +97,6 @@ CREATE TABLE `usuarios` (
   `avatar_url` varchar(200) NOT NULL,
   `categorias_usuario` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`cpf`, `nome_usuario`, `senha_usuario`, `telefone_usuario`, `email`, `data_nascimento`, `bio_usuario`, `cep`, `rua`, `bairro`, `cidade`, `estado`, `numero`, `complemento`, `tipo_usuario`, `genero_cliente`, `avatar_url`, `categorias_usuario`) VALUES
-('13353146601', 'raphael', 'ef1fedf5d32ead6b7aaf687de4ed1b71', '(31) 952631', 'raphaelnunes443@gmail.com', '2004-12-07', 'aa', '31210630', 'Rua das Garças', 'Santo André', 'Belo Horizonte', 'MG', 33, '', 0, 'M', '', 'aa');
 
 --
 -- Índices para tabelas despejadas

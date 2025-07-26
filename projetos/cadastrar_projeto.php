@@ -2,14 +2,8 @@
 include '../banco/conexao.php';
 if ($_GET['p']=='inserir'){
     $nome_do_projeto = $_POST['nome_do_projeto']; 
-<<<<<<< HEAD
     $id_usuario_freelancer = $_POST['id_usuario_feelancer'];
     $id_usuario_contratante = $POST['id_usuario_contratante'];
-=======
-    //$id_usuario_freelancer = $_POST['id_usuario_feelancer'];
-    //$id_usuario_contratante = $POST['id_usuario_contratante']; //puxar do banco
-    //data e hora do projeto
->>>>>>> d115d29fbb44a630dac452389e19d458b578d836
     $descricao = $_POST['descricao']; 
     $hora_inicio = $_POST['hora_inicio']; 
     $data_fim = $_POST['data_fim']; 
