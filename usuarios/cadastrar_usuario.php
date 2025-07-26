@@ -31,9 +31,9 @@ categorias_usuario = Categorias de experiência
 http://localhost/freelancers/usuarios/cadastrar_usuario.php?p=inserir
 -->
 <?php
-include('save.php');
-include('../banco/conexao.php');
-if ($_GET['p']=='inserir'){
+
+    include('../banco/conexao.php');
+    if ($_GET['p']=='inserir'){
     
         $cpf = $_POST['cpf']; 
         $nome = $_POST['nome']; 
@@ -44,7 +44,6 @@ if ($_GET['p']=='inserir'){
         $bio_usuario = $_POST['bio'];
         $tipo_usuario = $_POST['tipo_usuario'];
         $genero_usuario = $_POST['genero_usuario'];
-        $url_perfil = $_POST['url_perfil'];
         $categorias = $_POST['categorias'];
         $cep = $_POST['cep'];
         $rua = $_POST['rua'];
@@ -53,10 +52,17 @@ if ($_GET['p']=='inserir'){
         $estado = $_POST['uf'];
         $numero = $_POST['numero'];
         $complemento = $_POST['complemento'];
-         
-        $sql = "INSERT INTO usuarios (cpf, nome_usuario, senha_usuario, telefone_usuario, email, data_nascimento, bio_usuario, cep, rua, bairro, cidade, estado, numero, complemento, tipo_usuario, genero_cliente, avatar_url, categorias_usuario) 
-                            VALUES ('$cpf', '$nome', '$senha', '$telefone',  '$email',  '$dtnascimento', '$bio_usuario', '$cep', '$rua', '$bairro', '$cidade', '$estado', '$numero', '$complemento', '$tipo_usuario', '$genero_usuario', '$nomeArquivoNovo', '$categorias')"; 
+        $avatar = '20250726013042.jpg'; //imagem padrão
+
+        //Atualizar imagem
+        if($_FILES["url_perfil"]["error"] == UPLOAD_ERR_OK){
+            include('save.php');
+            $avatar = $nomeArquivoNovo;
+        }
         
+        $sql = "INSERT INTO usuarios (cpf, nome_usuario, senha_usuario, telefone_usuario, email, data_nascimento, bio_usuario, cep, rua, bairro, cidade, estado, numero, complemento, tipo_usuario, genero_cliente, avatar_url, categorias_usuario) 
+                            VALUES ('$cpf', '$nome', '$senha', '$telefone',  '$email',  '$dtnascimento', '$bio_usuario', '$cep', '$rua', '$bairro', '$cidade', '$estado', '$numero', '$complemento', '$tipo_usuario', '$genero_usuario', '$avatar', '$categorias')"; 
+                   
         if ($conn->query($sql) === TRUE){ 
         echo "Contato cadastrado com sucesso!<br>"; 
         echo '<a href="cadastrar_usuario.php" class="btn btn-primary">Voltar</a>'; 
@@ -231,6 +237,5 @@ function meu_callback(conteudo) {
 <?php
 }
 ?>
-
 </body>
 </html>
