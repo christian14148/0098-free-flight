@@ -2,8 +2,9 @@
 include '../banco/conexao.php';
 if ($_GET['p']=='inserir'){
     $nome_do_projeto = $_POST['nome_do_projeto']; 
-    $id_usuario_freelancer = $_POST['id_usuario_feelancer'];
-    $id_usuario_contratante = $POST['id_usuario_contratante'];
+    //$id_usuario_freelancer = $_POST['id_usuario_feelancer'];
+    //$id_usuario_contratante = $POST['id_usuario_contratante']; //puxar do banco
+    //data e hora do projeto
     $descricao = $_POST['descricao']; 
     $hora_inicio = $_POST['hora_inicio']; 
     $data_fim = $_POST['data_fim']; 
@@ -26,14 +27,14 @@ if ($_GET['p']=='inserir'){
 ?>
 
     <form action="cadastrar_projeto.php?p=inserir" method="POST">
-    <input type="text"  id="nome_do_projeto" name="nome_do_projeto"> Nome do projeto <br><br>
-    <input type="text"  id="descricao" name="descricao">Descriçao do projeto<br><br>
-    <input type="date"  id="data_inicio" name="data_inicio">Data Inicio do projeto<br><br>
-    <input type="time"  id="hora_inicio" name="hora_inicio">Horario do projeto<br> <br>
-    <input type="date"  id="data_fim" name="data_fim">Data final do projeto<br><br>
-    <input type="time"  id="hora_fim" name="hora_fim">Hora final do projeto<br><br>
+    <input type="text"  id="nome_do_projeto" name="nome_do_projeto" required> Nome do projeto <br><br>
+    <input type="text"  id="descricao" name="descricao" required>Descriçao do projeto<br><br>
+    <input type="date"  id="data_inicio" name="data_inicio" required>Data Inicio do projeto<br><br>
+    <input type="time"  id="hora_inicio" name="hora_inicio" required>Horario do projeto<br> <br>
+    <input type="date"  id="data_fim" name="data_fim" required>Data final do projeto<br><br>
+    <input type="time"  id="hora_fim" name="hora_fim" required>Hora final do projeto<br><br>
     
     <button type="submit" class="btn btn-primary">Cadastrar</button>
-       
+    
 
 
