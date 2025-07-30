@@ -7,17 +7,7 @@
 </head>
 <body>
 
-<!--Nessa pagina o usuario ira deletar o seu cadastro-->
-
-<!--NAVBAR-->
-
-<!--VALIDAR SESSÃO -->
-
-<!--FORMULARIO PARA DELETAR CADASTRO-->
-
-<!-- CONEXÃO BANCO -->
-
-<!-- FOOTER -->
+<!--      fazer ainda     -->
 
 </body>
 </html>

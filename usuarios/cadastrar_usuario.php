@@ -32,7 +32,7 @@ http://localhost/freelancers/usuarios/cadastrar_usuario.php?p=inserir
 -->
 <?php
 
-    include('../banco/conexao.php');
+    include('banco/conexao.php');
     if ($_GET['p']=='inserir'){
     
         $cpf = $_POST['cpf']; 
@@ -65,16 +65,16 @@ http://localhost/freelancers/usuarios/cadastrar_usuario.php?p=inserir
                    
         if ($conn->query($sql) === TRUE){ 
         echo "Contato cadastrado com sucesso!<br>"; 
-        echo '<a href="cadastrar_usuario.php" class="btn btn-primary">Voltar</a>'; 
+        echo '<a href="index.php">Voltar</a>'; 
         } else { 
         echo "Erro: " . $sql . "<br>" . $conn->error; 
         }
-    }else{
+    }if($_GET['p'] == 'novo'){
 ?>
 
 <body>
     
-    <form action="cadastrar_usuario.php?p=inserir" method="POST" enctype="multipart/form-data">
+    <form action="index.php?p=inserir" method="POST" enctype="multipart/form-data">
     <div>
         <label>CPF </label>
         <input type="number" name="cpf" >
@@ -165,6 +165,7 @@ http://localhost/freelancers/usuarios/cadastrar_usuario.php?p=inserir
         <textarea id="bio" name="bio" rows="6" cols="45"></textarea>
     </div>
     <button type="submit">Cadastrar</button>
+    <a href="index.php">Entrar</a>
     </form>
 
     <script>

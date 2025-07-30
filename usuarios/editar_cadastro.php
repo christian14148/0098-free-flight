@@ -73,7 +73,7 @@ categorias_usuario = Categorias de experiência
         }
 }
 
-if ($_GET['p']=='editar' && isset($_GET['cpf'])){
+if ($_GET['p']=='editar' && $_SESSION['cpf'] = $login){
     $cpf = $_GET['cpf'];
     $resultado = $conn->query("SELECT * FROM usuarios WHERE cpf='$cpf'");
     $contato = $resultado->fetch_assoc();
