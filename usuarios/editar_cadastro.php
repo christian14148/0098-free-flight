@@ -8,7 +8,7 @@
 <body>
 <?php
 
-include('../banco/conexao.php');
+include('banco/conexao.php');
 if ($_GET['p']=='salvar'){
 
     $cpf = $_POST['id']; 
@@ -73,8 +73,8 @@ categorias_usuario = Categorias de experiência
         }
 }
 
-if ($_GET['p']=='editar' && $_SESSION['cpf'] = $login){
-    $cpf = $_GET['cpf'];
+if ($_GET['p']=='editar'){
+    $cpf = $_SESSION['cpf'];
     $resultado = $conn->query("SELECT * FROM usuarios WHERE cpf='$cpf'");
     $contato = $resultado->fetch_assoc();
 }
@@ -83,7 +83,7 @@ if ($_GET['p']=='editar'){
 ?>
 
 <h2>Editar Contato</h2>
-<form action="editar_cadastro.php?p=salvar" method="POST" enctype="multipart/form-data">
+<form action="index.php?p=salvar" method="POST" enctype="multipart/form-data">
 
     <!--  Biografia e Senha   -->
 
@@ -179,7 +179,7 @@ if ($_GET['p']=='editar'){
             <input type="text" id="complemento" name="complemento" value="<?php echo $contato['complemento'];?>">
         </div>
     </div>
-    <button type="submit">Salvar</button>
+    <button type="button" onclick="confSubmit(this.form);">Salvar</button>
 </form>
 
     <script>
